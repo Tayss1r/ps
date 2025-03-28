@@ -1,21 +1,19 @@
 #include <bits/stdc++.h>
-#define all(t) t.begin(),t.end()
+#define all(t) t.rbegin(),t.rend()
 #define rev(t) reverse(t.begin(), t.end())
 #define ln '\n'
 using namespace std;
 
 void solve() {
-    char str;
-    string rts;
-    cin >> str >> rts;
+    int n, s,d,ans = 0;
+    cin >> n;
     
-    string key = "qwertyuiopasdfghjkl;zxcvbnm,./";
-    int direc = (str == 'R') ? -1 : 1;
-    
-    for (int i = 0; i < rts.size(); i++) {
-        cout << key[key.find(rts[i])+direc];
+    for (int i = 0; i < n; i++) {
+        cin >> s >> d;
+        if (ans<s) ans = s;
+        else ans = s+((ans - s + d)/d)*d;
     }
-    cout << ln;
+    cout << ans <<ln;
 }
 
 int main() {

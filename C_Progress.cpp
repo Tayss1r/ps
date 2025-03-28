@@ -1,21 +1,24 @@
 #include <bits/stdc++.h>
-#define all(t) t.begin(),t.end()
+#define all(t) t.rbegin(),t.rend()
 #define rev(t) reverse(t.begin(), t.end())
 #define ln '\n'
 using namespace std;
 
 void solve() {
-    char str;
-    string rts;
-    cin >> str >> rts;
-    
-    string key = "qwertyuiopasdfghjkl;zxcvbnm,./";
-    int direc = (str == 'R') ? -1 : 1;
-    
-    for (int i = 0; i < rts.size(); i++) {
-        cout << key[key.find(rts[i])+direc];
+    int n;
+    cin >> n;
+    vector<int> p(7);
+
+    for (int i = 0; i < 7; i++) {
+        cin >> p[i];
     }
-    cout << ln;
+    int day = 0;
+    while (n > 0) {
+        n -= p[day];
+        day = (day + 1)%7;
+    }
+    
+    cout << (day == 0 ? 7:day) <<ln;
 }
 
 int main() {
